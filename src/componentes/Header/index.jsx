@@ -3,13 +3,13 @@ import { Container, Profile } from './styles'
 export function Header(){
   return(
     <Container>
-      <div>
+      <main>
         <h1>RocketMovies</h1>
         <input
         type="text"
         placeholder='Pesquisar pelo Título'
         />
-      </div>
+      </main>
 
         <Profile>
           <img src="https://github.com/sebastiaofelix.png" 

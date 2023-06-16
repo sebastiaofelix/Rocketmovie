@@ -3,14 +3,14 @@ import styled from 'styled-components'
 export const Container = styled.header`
 display: flex;
 height: 124px;
-width: 100%;
+width: auto;
 justify-content: space-between;
 border-bottom-width: 1px;border-bottom-style: solid;
 border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
-> div {
+> main {
   display: flex;
-  margin-left: 124px;
+  margin-left: 350px;
   align-items: center;
 
   h1 {
@@ -38,7 +38,7 @@ border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 export const Profile = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 124px;
+  margin-right: 350px;
 
   > img{
     width: 64px;
