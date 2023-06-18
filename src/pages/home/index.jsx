@@ -3,6 +3,8 @@ import { FiPlus } from 'react-icons/fi'
 
 import { Header } from '../../componentes/Header'
 import { Button } from '../../componentes/Button'
+import { Note } from '../../componentes/Note'
+
 
 
 export function Home(){
@@ -18,17 +20,14 @@ export function Home(){
       </section>
 
       <Content>
-        <h1>Introdução ao React</h1>
-
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam est, voluptatibus,
-          assumenda corporis adipisci vero facilis saepe ratione blanditiis aspernatur tempore
-            suscipit dolorum commodi velit rem molestias! Numquam, assumenda quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam est, voluptatibus,
-          assumenda corporis adipisci vero facilis saepe ratione blanditiis aspernatur tempore
-            suscipit dolorum commodi velit rem molestias! Numquam, assumenda quos.Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam est, voluptatibus,
-          assumenda corporis adipisci vero facilis saepe ratione blanditiis aspernatur tempore
-            suscipit dolorum commodi velit rem molestias! Numquam, assumenda quos.
-        </p>
+        <Note data={{
+          title: 'Miles Morales 2',
+          tags: [
+            {id: '1', name:'animação'},
+            {id: '2', name:'ação'}
+          ]
+        }}
+          />         
       </Content>      
     </Container>
   )

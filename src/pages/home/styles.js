@@ -27,21 +27,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    grid-area: content;
-    overflow-y: auto;
-    margin: 0 350px;
-    width: auto;
-    height: 223px;
-    padding: 32px;
-    border-radius: 16px;
-    background-color: ${({ theme }) => theme.COLORS.GRAY_400};
 
-    h1{
-      margin-bottom: 15px;
-      font-size: 24px;
-    }
 
     p {
       font-size: 16px;

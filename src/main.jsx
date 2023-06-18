@@ -5,14 +5,14 @@ import theme from './styles/theme';
 import { ThemeProvider } from 'styled-components';
 
 
-import { Home } from './pages/home';
+import { CreateNote } from './pages/CreateNote';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Home/>
+      <CreateNote/>
     </ThemeProvider>
   </React.StrictMode>
 )
