@@ -12,6 +12,10 @@ export const Container = styled.div`
   "header"
   "section"
   "content";
+
+  .link {
+    text-decoration: none;
+  }
   
   > section {
 
@@ -29,13 +33,4 @@ export const Container = styled.div`
 export const Content = styled.div`
 
 
-    p {
-      font-size: 16px;
-      color: ${({ theme }) => theme.COLORS.GRAY_100};
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
 `;

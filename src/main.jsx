@@ -5,14 +5,14 @@ import theme from './styles/theme';
 import { ThemeProvider } from 'styled-components';
 
 
-import { CreateNote } from './pages/CreateNote';
+import { Routes } from './routes';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <CreateNote/>
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>
 )

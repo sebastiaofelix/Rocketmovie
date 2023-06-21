@@ -18,4 +18,16 @@ export const Container = styled.button`
       font-size: 24px;
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
+
+    > p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: ${({ theme }) => theme.COLORS.GRAY_100};
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: justify;
+    }
 `;
