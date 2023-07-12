@@ -2,9 +2,13 @@ import { Container } from './styles'
 import { FiArrowLeft, FiStar, FiClock } from 'react-icons/fi'
 import { Header } from '../../componentes/Header'
 import { Tags } from '../../componentes/Tags'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useAuth } from '../../hook/auth'
 
 
 export function MoviePreview(){
+
   return(
     <Container>
 

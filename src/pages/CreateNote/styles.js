@@ -11,7 +11,7 @@ export const Container = styled.div`
 .tags{
     display: flex;
     padding: 16px;    
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     border-radius: 10px;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_950};
     gap: 12px;

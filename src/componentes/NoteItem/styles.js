@@ -18,6 +18,7 @@ export const Container = styled.div`
     border: none;
     background: none;
     padding: 12px;
+    cursor: pointer;
   }
   
   .button-delete {
