@@ -28,6 +28,39 @@ function AuthProvider({ children }) {
     }
   }
 
+  function signOut(){
+    localStorage.removeItem('@rocketmovie:user');
+    localStorage.removeItem('@rocketmovie:token');
+
+    setData({});
+  }
+
+  async function updateProfile({ user, avatarFile }){
+    try{
+      if(avatarFile){
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("avatar", avatarFile)
+
+        const response = api.patch('/users/avatar', fileUploadForm);
+        user.avatar = response.data.avatar;
+      }
+
+      await api.put('/users', user);      
+      localStorage.setItem('@rocketmovie:user', JSON.stringify(user));
+
+      setData({ user, token: data.token });
+      alert("Perfil Atualizado")
+ 
+    } catch(error) {
+        if(error.response){
+          alert(error.response.data.message);
+        } else{
+          alert('Não foi possivel atualizar!')
+        }
+      }
+  }
+  
+
   useEffect(() => {
     const token = localStorage.getItem('@rocketmovie:token');
     const user = localStorage.getItem('@rocketmovie:user');
@@ -46,6 +79,8 @@ function AuthProvider({ children }) {
   return(
     <AuthContext.Provider value={{
       signIn,
+      signOut,
+      updateProfile,
       user: data.user
     }}>
       {children}

@@ -27,25 +27,25 @@ export function SignIn(){
         <h2>Faça seu login</h2>
 
         <main>
-        <Inputs 
-        placeholder="Email"
-        type="text"
-        icon={FiMail}
-        onChange={e => setEmail(e.target.value)}
-        />
+          <Inputs 
+          placeholder="Email"
+          type="text"
+          icon={FiMail}
+          onChange={e => setEmail(e.target.value)}
+          />
 
-        <Inputs 
-        placeholder="Senha"
-        type="password"
-        icon={FiLock}
-        onChange={e => setPassword(e.target.value)}
-        />
+          <Inputs 
+          placeholder="Senha"
+          type="password"
+          icon={FiLock}
+          onChange={e => setPassword(e.target.value)}
+          />
 
-        <Button title="Entrar" onClick={handleSignIn}/>
+          <Button title="Entrar" onClick={handleSignIn} />
 
-        <a href="/"> Criar conta </a>
+          <a href="/register"> Criar conta </a>
 
-        </main>
+          </main>
       </Form>
 
       <Background />

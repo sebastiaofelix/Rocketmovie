@@ -3,8 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import { CreateNote } from '../pages/CreateNote';
 import { Home } from '../pages/home';
 import { Profile } from '../pages/Profile';
-import { SignIn } from '../pages/SignIn';
-import { SignUp } from '../pages/SignUp';
 
 
 export function AppRoutes() {

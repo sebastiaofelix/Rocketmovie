@@ -8,7 +8,9 @@ export const Container = styled.div`
   padding-left: 200px;
   align-items: center;
 
-    a{
+    button{
+    background: none;
+    border: none;
     display: flex;
     align-items: center;
     gap: 2px;
@@ -25,14 +27,14 @@ export const Container = styled.div`
   > div{
   position: relative;
   margin: -80px auto 0;
-  
 
     img{      
+      width: 186px;
       height: 180px;      
       border-radius: 50%;
     }
 
-    div{
+    >label{
       display: flex;
       height: 50px;
       width: 50px;
@@ -47,10 +49,14 @@ export const Container = styled.div`
       bottom: 7px;
       right: 7px;
 
+      input{
+      display: none;
+      }     
+
       svg {
       font-size: 30px;
       color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-      }
+      }      
     }
   }
  } 

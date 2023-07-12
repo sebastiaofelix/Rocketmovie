@@ -43,7 +43,7 @@ export const Profile = styled.div`
   margin-right: 350px;
   width: 37%;
 
-  > img{
+  img{
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -55,8 +55,9 @@ export const Profile = styled.div`
     margin-left: 16px;
     line-height: 24px;
 
-    strong {
+    a {
       color: ${({ theme }) => theme.COLORS.GRAY_200};
+      text-decoration: none;
     }
   }
 `;
