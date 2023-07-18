@@ -1,25 +1,29 @@
 import { Container } from './styles';
 import { Tags } from '../Tags'
+import { Rating  } from '../Rating';
 
 
 export function Note( { data, ...rest }){
   return(
-    <Container>
+    <Container {...rest}>
 
       <h1>{data.title}</h1>
 
+      <Rating grade={data.rating} />
+
       <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor error qui ipsam doloribus voluptatum iste, consequuntur itaque! Maxime recusandae repellat aliquam nesciunt quidem quibusdam dolore quam totam voluptatum. Consequuntur, culpa.
+          {data.description}
       </p> 
 
       {
-        data.tags &&
+        data.movieTags && (
         <footer>
           {
-            data.tags.map(tag => <Tags key={tag.id} title={tag.name} />)
-          }   
+            data.movieTags.map(tag => (
+            <Tags key={tag.id} title={tag.name}/>
+          ))}   
         </footer>
-      }
+      )}
     </Container>
-  )
+  );
 }

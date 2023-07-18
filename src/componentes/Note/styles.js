@@ -4,14 +4,14 @@ import styled from 'styled-components'
 export const Container = styled.button`
     display: flex;
     flex-direction: column;
-    grid-area: content;
-    margin: 0 350px;
-    width: auto;
+    width: 100%;
     height: 223px;
     padding: 32px;
     border-radius: 16px;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
     border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
 
     >  h1{
       margin-bottom: 15px;
@@ -29,5 +29,11 @@ export const Container = styled.button`
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: justify;
+    }
+
+    > footer {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
     }
 `;

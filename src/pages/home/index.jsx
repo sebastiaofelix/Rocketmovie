@@ -1,41 +1,63 @@
-import { Container, Content } from './styles'
-import { FiPlus } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Container, Content } from './styles';
+import { FiPlus } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { api } from '../../services/api';
+import { Header } from '../../componentes/Header';
+import { Button } from '../../componentes/Button';
+import { Note } from '../../componentes/Note';
+import { useState, useEffect } from 'react'
 
-import { Header } from '../../componentes/Header'
-import { Button } from '../../componentes/Button'
-import { Note } from '../../componentes/Note'
+import { useNavigate } from 'react-router-dom';
 
 
 
 export function Home(){
+  const [search, setSearch] = useState("");
+  const [notes, setNotes] = useState([]);
+  const navigate = useNavigate();
+
+
+  function handleNav(id){
+    navigate(`/moviePreview/${id}`)
+  }
+
+  useEffect(() => {
+    async function fetchNote(){
+      const response = await api.get(`/movieNotes?title=${search}`);
+      setNotes(response.data);
+    }
+    
+    fetchNote();
+  },[search])
+
   return(
     <Container>
       <Header />
-      <section>
-        <h1>Meus Filmes</h1>
-        <div>
-          <Link className="link" to="/createNote">
-            <Button         
-            title="Adicionar filme"
-            icon={FiPlus}       
-            />          
-          </Link>
-        </div>
-      </section>
-
-      <Content>
-        <Note data={{
-          title: 'Miles Morales 2',
-          tags: [
-            {id: '1', name:'animação'},
-            {id: '2', name:'ação'}
-          ]
+       <main>
+        <section>
+          <h1>Meus Filmes</h1>
           
-        }}
+          <div>
+            <Link className='link' to="/createNote">
+            <Button         
+              title="Adicionar filme"
+              icon={FiPlus}               
+            />
+            </Link>
+          </div>
+        </section>
+
+        <Content>
+        {notes.map(note => (
+          <Note
+            key={String(note.id)}
+            data={note}
+            onClick={() => handleNav(note.id)}             
           />  
-      
-      </Content>      
+          ))} 
+        </Content>
+       </main>       
     </Container>
-  )
+  );
+
 }

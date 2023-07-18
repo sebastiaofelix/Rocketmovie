@@ -66,14 +66,15 @@ export const TitleDiv = styled.div`
   gap: 15px;   
 `;
 
-  export const TextArea = styled.textarea`
-    display: flex;
-    width: 100%;
-    height: 274px;
-    margin: 40px 0;
-    background-color: ${({ theme }) => theme.COLORS.GRAY_400};
-    padding: 19px 16px;
-    border: none;
-    border-radius: 10px;
-    resize: none;
-  `;
+export const TextArea = styled.textarea`
+  display: flex;
+  width: 100%;
+  height: 274px;
+  margin: 40px 0;
+  background-color: ${({ theme }) => theme.COLORS.GRAY_400};
+  padding: 19px 16px;
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  color: white;
+`;

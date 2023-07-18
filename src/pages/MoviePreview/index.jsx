@@ -1,60 +1,70 @@
-import { Container } from './styles'
-import { FiArrowLeft, FiStar, FiClock } from 'react-icons/fi'
-import { Header } from '../../componentes/Header'
-import { Tags } from '../../componentes/Tags'
-import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import { useAuth } from '../../hook/auth'
+import { Container } from './styles';
+import { FiArrowLeft, FiStar, FiClock } from 'react-icons/fi';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+import { Header } from '../../componentes/Header';
+import { Tags } from '../../componentes/Tags';
+import { Rating } from '../../componentes/Rating';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../hook/auth';
+
+import { api } from '../../services/api';
 
 
 export function MoviePreview(){
+  const params = useParams();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  
+  
+  const [data, setData] = useState(null);
 
+  const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
+  function handleNav() {
+    navigate('/')
+  }
+
+  useEffect(() => {
+    async function fetchMovie(){
+      const response = await api.get(`/movieNotes/${params.id}`);
+      setData(response.data)
+    }
+
+    fetchMovie()
+  }, []);
   return(
     <Container>
 
       <Header />
 
       <main>
-        <a href="/"> <FiArrowLeft /> Voltar</a>
+        <a href='/'> <FiArrowLeft /> Voltar</a>
 
         <header>
-          <h1>Interestellar</h1>
+          <h1>{data.title}</h1>
           <div>
-          <FiStar />
-          <FiStar />
-          <FiStar />
-          <FiStar />
-          <FiStar />
+            <Rating />
           </div>
         </header>
 
         <section>
-        <img src="https://github.com/sebastiaofelix.png" 
-            alt="Foto de usuário" />
+        <img src={avatarURL} 
+            alt={user.name} />
         <p>Por</p>
-        <span>Sebastiao Felix</span>
+        <span>{user.name}</span>
         <div>
           <FiClock /> <p>23/05/22 ás 08:00</p>
         </div>        
         </section>
         
         <div>
-        <Tags title="rpg"/>   
-        <Tags title="action"/>   
-        <Tags title="mario"/> 
+          {data.tags.map( tag => (
+            <Tags key={(String(tag.id))} title={tag.name}/>   
+          ))}
         </div>
 
-        <p>
-        Lorem ipsum dolor sit amet. Sed quia quidem qui exercitationem dignissimos sed quia 
-        magnam vel omnis quas rem quia minima! Eum iusto quia 33 dolores labore hic doloribus similique ut 
-        amet iste aut facilis adipisci a repellat quia. Aut optio beatae in neque dignissimos et veritatis placeat 
-        sed sint voluptatibus aut molestias odit ex similique quam 33 dicta alias. Cum quod debitis sed vero iure qui 
-        dolore molestias 33 rerum asperiores et fugiat recusandae et quia molestiae.
-        Sit consectetur eveniet 33 rerum eveniet ab ratione nihil ut quas galisum in atque quam eum numquam itaque.
-        Qui fugiat autem in commodi quia eos quibusdam consequatur ab nulla consequatur ut maiores suscipit!
-        Eum ipsum nihil qui atque quod non omnis inventore non voluptate voluptatibus ea odit Quis eum praesentium consequatur 
-        et temporibus autem? Aut exercitationem illo a earum dolorem qui facilis eligendi et voluptas reiciendis cum cumque omnis quo quasi quisquam?
-        </p>
+        <p>{data.description}</p>
 
       </main>
     </Container>

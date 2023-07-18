@@ -17,7 +17,7 @@ export function CreateNote(){
   const [rating, setRating] = useState("");
   const [description, setDescription] = useState("");
 
-  const [tag, setTag] = useState([])
+  const [tags, setTags] = useState([])
   const [newTag, setNewTag] = useState("")
 
   const navigate = useNavigate();
@@ -27,22 +27,50 @@ export function CreateNote(){
   }
 
   function handleAddTag(){
-    setTag(prevState => [...prevState, newTag]);
+    if(!newTag){
+      return alert('Digite a tag');
+    }
+
+    setTags(prevState => [...prevState, newTag]);
     setNewTag("")
   }
 
   function handleDeleteTag(deleted){
-    setTag(prevState => [...prevState.filter(tag => tag !== deleted)])
+    setTags(prevState => [...prevState.filter(tag => tag !== deleted)])
+  }
+
+  function handleCleanNote(){
+    const confirmMovie = confirm("Caso continue perderá suas anotações, deseja prosseguir?")
+
+    if(confirmMovie){
+      navigate(-1)
+    }
   }
 
   async function handleCreateNote(){
+    if(!title){
+      return alert("Digite o título da nota.");
+    }
+
+    const validRating = rating >=0 && rating <= 5;
+    
+    if(!validRating){
+      return alert("A nota do filme deve ser entre 0 e 5.");
+    }
+
+    if(newTag){
+      return alert("Voce deixou uma tag no campo para adicionar, mas não clicou em adicionar. ");
+    }    
 
     await api.post('/movieNotes', {
       title,
-      rating,
       description,
-      tag
+      rating,
+      tags,
     });
+
+    alert("Nota criada com sucesso!")
+    navigate("/")
   }
 
   return(
@@ -85,17 +113,18 @@ export function CreateNote(){
           <Section title="Marcadores">
             <div className='tags'> 
             {
-              tag.map((tag, index) => (
+              tags.map((tag, index) => (
                 <NoteItem
+                  key={String(index)}
                   value={tag}
-                  index={String(index)}
                   onClick={() => handleDeleteTag(tag)}
                 />
               ))
             }
 
               <NoteItem  
-                isNew placeholder="Nova tag"
+                isNew 
+                placeholder="Nova tag"
                 value={newTag}
                 onChange={e => setNewTag(e.target.value)}
                 onClick={handleAddTag}
@@ -104,7 +133,10 @@ export function CreateNote(){
           </Section>
 
           <footer>
-            <DarkButton title="Excluir filme"/>
+            <DarkButton 
+            title="Excluir filme"
+            onClick={handleCleanNote}
+            />
             <Button 
             title="Salvar alterações"
             onClick={handleCreateNote}
