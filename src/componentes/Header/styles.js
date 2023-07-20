@@ -3,45 +3,37 @@ import styled from 'styled-components'
 export const Container = styled.header`
 display: flex;
 height: 124px;
+max-width: 1200px;
 width: 100%;
+margin: 0 auto;
 justify-content: space-between;
 border-bottom-width: 1px;border-bottom-style: solid;
 border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 
 > main {
   display: flex;
-  width: 100%;
-  margin-left: 350px;
   align-items: center;
 
   h1 {
     font-size: 24px;
     color: ${({ theme }) => theme.COLORS.PINK};
   }
-
-  input{
-    height: 56px;
-    width: 100%;
-    background: transparent;
-    border: 0;
-    border-radius: 10px;
-    padding: 19px 24px;
-    margin-left: 64px;
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
-  }
-
-  &:placeholder {
-    color: ${({ theme }) => theme.COLORS.GRAY_200};
-  }
 }
 `;
+
+export const Search = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  width: 500px;
+`;
+
 
 export const Profile = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  margin-right: 350px;
-  width: 37%;
+  width: 12%;
 
   img{
     width: 64px;

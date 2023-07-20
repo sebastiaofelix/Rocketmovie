@@ -1,9 +1,9 @@
-import { Container, Profile } from './styles';
+import { Container, Profile, Search } from './styles';
 import { useAuth } from '../../hook/auth';
 import { api } from '../../services/api';
 import { Link } from 'react-router-dom'
 
-export function Header(){
+export function Header({ children }){
   const { signOut, user } = useAuth();
 
   function handleSignOut(){
@@ -16,26 +16,25 @@ export function Header(){
     <Container>
       <main>
         <h1>RocketMovies</h1>
-        <input
-        type="text"
-        placeholder='Pesquisar pelo Título'
-        />
       </main>
 
-        <Profile >
-          <div>
-            <Link to={'/profile'}>
-              <img src={avatarUrl} 
-                alt="Foto de usuário"
-              />
-            </Link>
-          </div>
+      <Search>{children}</Search>
 
-          <div>
-            <span>{user.name}</span>
-            <a href="/" onClick={handleSignOut}>sair</a>
-          </div>          
-        </Profile>
+
+      <Profile >
+        <div>
+          <Link to={'/profile'}>
+            <img src={avatarUrl} 
+              alt="Foto de usuário"
+            />
+          </Link>
+        </div>
+
+        <div>
+          <span>{user.name}</span>
+          <a href="/" onClick={handleSignOut}>sair</a>
+        </div>          
+      </Profile>
     </Container>
   )
 }

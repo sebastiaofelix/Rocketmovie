@@ -37,4 +37,15 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+  max-height: calc(100vh - 30rem);
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.COLORS.PINK};
+    border-radius: 0.8rem;
+  }
 `;

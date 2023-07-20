@@ -20,15 +20,16 @@ export const Container = styled.div`
 
     > header {
       display: flex;
-      padding: 12px;
+      padding: 12px 12px 12px 0;
       align-items: center;
       gap: 12px;
 
       h1 {
-        font-size: 28px;
+        font-size: 36px;
+        font-weight: 400;
       }
 
-      > div {
+      div {
       display: flex;
       color: ${({ theme }) => theme.COLORS.PINK};
       align-items: center;
@@ -42,6 +43,7 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       gap: 10px;
+
       img{
         height: 16px;
         width: 16px;
@@ -57,18 +59,24 @@ export const Container = styled.div`
         p {
           color: ${({ theme }) => theme.COLORS.WHITE};
         }
-      }
-
-    ;
+      }    
     }
 
     > div {
-      margin: 40px 0;
-      height: 35px;
+      margin-top: 30px;
     }
 
     > p {
+      margin-top: 33px;
       text-align: justify;
+    }
+
+    > footer {
+      display: flex;
+      justify-content: center;
+      margin: 80px auto;    
+      max-width: 400px;  
+      width: 100%;
     }
   }
 `;

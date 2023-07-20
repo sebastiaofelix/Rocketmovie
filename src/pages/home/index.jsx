@@ -1,10 +1,11 @@
 import { Container, Content } from './styles';
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiSearch } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { api } from '../../services/api';
 import { Header } from '../../componentes/Header';
 import { Button } from '../../componentes/Button';
 import { Note } from '../../componentes/Note';
+import { Inputs } from '../../componentes/Inputs'
 import { useState, useEffect } from 'react'
 
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +33,13 @@ export function Home(){
 
   return(
     <Container>
-      <Header />
+      <Header>
+        <Inputs
+        icon={FiSearch}
+        onChange={e => setSearch(e.target.value)}
+        placeholder='Procurar filmes'
+        />
+      </Header>
        <main>
         <section>
           <h1>Meus Filmes</h1>
@@ -52,9 +59,9 @@ export function Home(){
           <Note
             key={String(note.id)}
             data={note}
-            onClick={() => handleNav(note.id)}             
-          />  
-          ))} 
+            onClick={() => handleNav(note.id)}                         
+          />            
+          ))}           
         </Content>
        </main>       
     </Container>

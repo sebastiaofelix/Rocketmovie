@@ -14,19 +14,19 @@ export const Container = styled.button`
     cursor: pointer;
 
     >  h1{
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       font-size: 24px;
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
 
     > p {
-      margin-bottom: 20px;
+      height: 48px;
       font-size: 16px;
       color: ${({ theme }) => theme.COLORS.GRAY_100};
       display: -webkit-box;
       -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
       overflow: hidden;
+      line-height: 22px;
       text-overflow: ellipsis;
       text-align: justify;
     }
