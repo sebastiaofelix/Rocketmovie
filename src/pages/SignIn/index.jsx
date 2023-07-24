@@ -2,6 +2,7 @@ import { FiMail, FiLock } from 'react-icons/fi';
 import { Container, Form, Background } from './styles';
 import { Inputs } from '../../componentes/Inputs';
 import { Button } from '../../componentes/Button';
+import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 
@@ -14,8 +15,14 @@ export function SignIn(){
 
   const { signIn } = useAuth();
 
+  const navigate = useNavigate();
+
   function handleSignIn(){
     signIn({ email, password });
+  }
+
+  function nav(){
+    navigate("/register")
   }
 
   return(
@@ -43,7 +50,7 @@ export function SignIn(){
 
           <Button title="Entrar" onClick={handleSignIn} />
 
-          <div><Link to="/register"> Criar conta </Link></div>
+          <button onClick={nav}>Criar Conta</button>
 
           </main>
       </Form>

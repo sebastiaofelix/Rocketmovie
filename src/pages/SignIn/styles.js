@@ -31,7 +31,7 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 10px;
 
-    div{
+    button{
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,6 +41,8 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.COLORS.PINK};
       margin: 124px 0;
       font-size: 18px;
+      border: none;
+      text-decoration: none;
     }
   }
 `;
