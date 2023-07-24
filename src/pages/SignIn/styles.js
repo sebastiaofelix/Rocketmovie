@@ -31,7 +31,7 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 10px;
 
-    button{
+    .signin{
       display: flex;
       align-items: center;
       justify-content: center;
@@ -42,7 +42,9 @@ export const Form = styled.form`
       margin: 124px 0;
       font-size: 18px;
       border: none;
+      background-color: transparent;
       text-decoration: none;
+      cursor: pointer;
     }
   }
 `;

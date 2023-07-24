@@ -50,7 +50,7 @@ export function SignIn(){
 
           <Button title="Entrar" onClick={handleSignIn} />
 
-          <button onClick={nav}>Criar Conta</button>
+          <button className="signin" onClick={nav}>Criar Conta</button>
 
           </main>
       </Form>
