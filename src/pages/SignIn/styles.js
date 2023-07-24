@@ -31,7 +31,7 @@ export const Form = styled.form`
     flex-direction: column;
     gap: 10px;
 
-    a{
+    div{
       display: flex;
       align-items: center;
       justify-content: center;
