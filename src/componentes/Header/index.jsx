@@ -1,7 +1,8 @@
 import { Container, Profile, Search } from './styles';
 import { useAuth } from '../../hook/auth';
 import { api } from '../../services/api';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import avatar_placeholder from '../../assets/avatar_placeholder.svg';
 
 export function Header({ children }){
   const { signOut, user } = useAuth();
@@ -10,7 +11,7 @@ export function Header({ children }){
     signOut();
   }
 
-  const avatarUrl = `${api.defaults.baseURL}/files/${user.avatar}`;
+  const avatarUrl = `${api.defaults.baseURL}/files/${user.avatar}` || avatar_placeholder;
 
   return(
     <Container>

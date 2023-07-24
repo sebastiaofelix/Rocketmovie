@@ -1,9 +1,9 @@
-import { FiArrowLeft, FiUser, FiMail, FiLock } from 'react-icons/fi';
+import { FiMail, FiLock } from 'react-icons/fi';
 import { Container, Form, Background } from './styles';
 import { Inputs } from '../../componentes/Inputs';
 import { Button } from '../../componentes/Button';
 
-import { useState } from 'react'
+import { useState } from 'react';
 
 import { useAuth } from '../../hook/auth';
 
